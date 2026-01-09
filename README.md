@@ -4,8 +4,7 @@ This repository contains comprehensive notes and guides for Design and Analysis 
 
 ## Files
 
-- **[DAA Complete Guide](DAA_Complete_Guide%20(1).html)** - Complete guide with all DAA concepts and examples
-
+- **[DAA Complete Guide](https://cdn.jsdelivr.net/gh/wasimahamadsamani/Notes-For-exams-DAA@main/DAA_Complete_Guide%20(1).html)** - Complete guide with all DAA concepts and examples
 ## Contents
 
 This guide covers:
