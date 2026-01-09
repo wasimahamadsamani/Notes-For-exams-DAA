@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAA Complete Study Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        header h1 { color: #667eea; margin-bottom: 10px; font-size: 2.2em; }
+        header p { color: #666; font-size: 1em; }
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .nav-buttons button {
+            padding: 12px 20px;
+            border: none;
+            background: #667eea;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 140px;
+        }
+        .nav-buttons button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        .nav-buttons button.active {
+            background: #764ba2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            min-height: 500px;
+        }
+        .module { display: none; }
+        .module.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        h2 { color: #667eea; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #667eea; }
+        h3 { color: #764ba2; margin-top: 20px; margin-bottom: 15px; }
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .question-title { font-weight: bold; color: #667eea; margin-bottom: 10px; font-size: 1.05em; }
+        .answer {
+            background: #f0f8ff;
+            padding: 15px;
+            border-left: 4px solid #764ba2;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .key-points {
+            background: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .memory-tip {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+        .key-points ul, .answer ul { margin-left: 20px; margin-top: 10px; }
+        .key-points li, .answer li { margin-bottom: 8px; }
+        code, pre { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; color: #d63384; }
+        pre { padding: 15px; overflow-x: auto; margin: 15px 0; background: #f4f4f4; border-left: 4px solid #667eea; border-radius: 5px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        table th { background: #667eea; color: white; padding: 12px; text-align: left; font-weight: bold; }
+        table td { padding: 12px; border-bottom: 1px solid #ddd; }
+        table tr:hover { background: #f8f9fa; }
+        .diagram {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        .example {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .formula {
+            background: #e8eaf6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            font-family: 'Courier New', monospace;
+        }
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.6em; }
+            .nav-buttons { flex-direction: column; }
+            .nav-buttons button { width: 100%; }
+            .content { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Design and Analysis of Algorithms</h1>
+            <p>Complete Study Guide - All Modules with Questions, Answers & Diagrams</p>
+        </header>
+
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showModule('module1')">📚 Module 1</button>
+            <button class="nav-btn" onclick="showModule('module2')">🔍 Module 2</button>
+            <button class="nav-btn" onclick="showModule('module3')">🎲 Module 3</button>
+            <button class="nav-btn" onclick="showModule('module4')">🌐 Module 4</button>
+        </div>
+
+        <div class="content">
+            <!-- MODULE 1 -->
+            <div id="module1" class="module active">
+                <h2>📚 MODULE 1: Introduction to Algorithms & Asymptotic Notations</h2>
+
+                <div class="question">
+                    <div class="question-title">Q1: What is an Algorithm? Define with Example</div>
+                    <div class="answer">
+                        <p><strong>Definition:</strong> A finite sequence of well-defined steps that takes input and produces output to solve a problem.</p>
+                        <p><strong>Key Characteristics:</strong></p>
+                        <ul>
+                            <li>Finiteness - Must terminate after finite steps</li>
+                            <li>Definiteness - Each step is clear and unambiguous</li>
+                            <li>Input/Output - Accepts input, produces output</li>
+                            <li>Effectiveness - All operations are basic and doable</li>
+                            <li>Generality - Works for various inputs</li>
+                        </ul>
+                        <p><strong>Example:</strong> Binary Search Algorithm</p>
+                        <div class="example">
+                            <p><strong>Problem:</strong> Find 35 in sorted array [3, 10, 15, 20, 35, 40, 60]</p>
+                            <pre>Algorithm BinarySearch(A[], low, high, x):
+    if low > high:
+        return -1
+    mid = (low + high) / 2
+    if A[mid] == x:
+        return mid
+    else if A[mid] > x:
+        return BinarySearch(A, low, mid-1, x)
+    else:
+        return BinarySearch(A, mid+1, high, x)</pre>
+                        </div>
+                    </div>
+                    <div class="key-points">
+                        <strong>💡 Remember:</strong> Same algorithm can be coded in any programming language!
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q2: Time Complexity vs Space Complexity</div>
+                    <div class="answer">
+                        <table>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Time Complexity</th>
+                                <th>Space Complexity</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Definition</strong></td>
+                                <td>Amount of TIME algorithm takes</td>
+                                <td>Amount of MEMORY used</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Measure</strong></td>
+                                <td>Number of operations</td>
+                                <td>Extra memory needed</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Examples</strong></td>
+                                <td>O(n), O(n²), O(log n)</td>
+                                <td>O(1), O(n)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Critical for</strong></td>
+                                <td>Real-time systems</td>
+                                <td>Embedded systems, Mobile</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q3: Big-O Notation with Examples</div>
+                    <div class="answer">
+                        <p><strong>Definition:</strong> f(n) = O(g(n)) if 0 ≤ f(n) ≤ c·g(n) for all n ≥ n₀</p>
+                        <p><strong>Complexity Hierarchy (Fastest to Slowest):</strong></p>
+                        <div class="diagram">O(1)      Constant        Hash lookup
+O(log n)  Logarithmic     Binary search
+O(n)      Linear          Linear search
+O(n log n) Linearithmic   Merge sort
+O(n²)     Quadratic       Bubble sort
+O(n³)     Cubic           Matrix multiply
+O(2ⁿ)     Exponential     Fibonacci recursive
+O(n!)     Factorial       Permutations</div>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>5n + 3 = O(n) - ignore constants</li>
+                            <li>n² + 2n = O(n²) - dominant term</li>
+                            <li>2^n + n = O(2^n) - exponential grows fastest</li>
+                        </ul>
+                    </div>
+                    <div class="memory-tip">
+                        <strong>💡 Tip:</strong> Drop constants and lower-order terms!
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q4: Linear Search Algorithm & Complexity</div>
+                    <div class="answer">
+                        <p><strong>Algorithm:</strong></p>
+                        <pre>LinearSearch(A[], n, x):
+    for i = 0 to n-1:
+        if A[i] == x:
+            return i
+    return -1</pre>
+                        <p><strong>Example: Search for 23 in [12, 5, 23, 8, 15]</strong></p>
+                        <div class="diagram">Array:  [12][5][23][8][15]
+Index:   0   1  2   3   4
+
+Step 1: Check 12 ≠ 23 → Continue
+Step 2: Check 5 ≠ 23 → Continue
+Step 3: Check 23 = 23 → FOUND!</div>
+                        <table>
+                            <tr>
+                                <th>Case</th>
+                                <th>Comparisons</th>
+                                <th>Complexity</th>
+                            </tr>
+                            <tr>
+                                <td>Best</td>
+                                <td>1</td>
+                                <td>O(1)</td>
+                            </tr>
+                            <tr>
+                                <td>Average</td>
+                                <td>n/2</td>
+                                <td>O(n)</td>
+                            </tr>
+                            <tr>
+                                <td>Worst</td>
+                                <td>n</td>
+                                <td>O(n)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q5: Properties of Good Algorithms</div>
+                    <div class="answer">
+                        <ul>
+                            <li><strong>Finiteness:</strong> Must terminate after finite steps</li>
+                            <li><strong>Definiteness:</strong> Each step precisely defined</li>
+                            <li><strong>Input:</strong> Accepts zero or more inputs</li>
+                            <li><strong>Output:</strong> Produces at least one output</li>
+                            <li><strong>Effectiveness:</strong> All operations are feasible</li>
+                            <li><strong>Generality:</strong> Works for various inputs</li>
+                            <li><strong>Efficiency:</strong> Uses minimal resources</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q6: Types of Time Complexity</div>
+                    <div class="answer">
+                        <div class="diagram">O(1)        Constant      - Immediate answer
+O(log n)    Logarithmic   - Binary search
+O(n)        Linear        - Simple loops
+O(n log n)  Linearithmic  - Merge sort, quicksort avg
+O(n²)       Quadratic     - Nested loops
+O(n³)       Cubic         - Triple nested loops
+O(2ⁿ)       Exponential   - Recursive problems
+O(n!)       Factorial     - Permutations</div>
+                        <p><strong>For n=1000:</strong></p>
+                        <table>
+                            <tr>
+                                <th>Complexity</th>
+                                <th>Operations</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>O(1)</td>
+                                <td>1</td>
+                                <td>1 nanosec</td>
+                            </tr>
+                            <tr>
+                                <td>O(n)</td>
+                                <td>1,000</td>
+                                <td>1 microsec</td>
+                            </tr>
+                            <tr>
+                                <td>O(n²)</td>
+                                <td>1,000,000</td>
+                                <td>1 millisec</td>
+                            </tr>
+                            <tr>
+                                <td>O(2ⁿ)</td>
+                                <td>10³⁰</td>
+                                <td>YEARS!</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 2 -->
+            <div id="module2" class="module">
+                <h2>🔍 MODULE 2: Searching, Sorting & Divide-Conquer</h2>
+
+                <div class="question">
+                    <div class="question-title">Q1: Binary Search Algorithm & Complexity</div>
+                    <div class="answer">
+                        <p><strong>Algorithm:</strong></p>
+                        <pre>BinarySearch(A[], low, high, x):
+    if low > high:
+        return -1
+    mid = (low + high) / 2
+    if A[mid] == x:
+        return mid
+    else if A[mid] > x:
+        return BinarySearch(A, low, mid-1, x)
+    else:
+        return BinarySearch(A, mid+1, high, x)</pre>
+                        <p><strong>Example: Find 60 in [3, 10, 15, 20, 35, 40, 60]</strong></p>
+                        <div class="diagram">Array: [3, 10, 15, 20, 35, 40, 60]
+
+Iteration 1: mid=20, 60>20 → Search RIGHT
+Iteration 2: mid=40, 60>40 → Search RIGHT
+Iteration 3: mid=60, 60=60 → FOUND!
+
+Total: 3 comparisons (vs 7 for linear!)</div>
+                        <table>
+                            <tr>
+                                <th>Case</th>
+                                <th>Comparisons</th>
+                                <th>Complexity</th>
+                            </tr>
+                            <tr>
+                                <td>Best</td>
+                                <td>1 (middle)</td>
+                                <td>O(1)</td>
+                            </tr>
+                            <tr>
+                                <td>Average</td>
+                                <td>log n</td>
+                                <td>O(log n)</td>
+                            </tr>
+                            <tr>
+                                <td>Worst</td>
+                                <td>log n</td>
+                                <td>O(log n)</td>
+                            </tr>
+                        </table>
+                        <div class="memory-tip">
+                            <strong>⚡ Golden Rule:</strong> If SORTED, use Binary Search! 50,000x faster for 1M elements!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q2: Merge Sort - Algorithm & Complexity</div>
+                    <div class="answer">
+                        <p><strong>Algorithm:</strong></p>
+                        <pre>MergeSort(A[], p, r):
+    if p < r:
+        q = (p + r) / 2
+        MergeSort(A, p, q)
+        MergeSort(A, q+1, r)
+        Merge(A, p, q, r)</pre>
+                        <p><strong>Example: Sort [100, 25, 98, 54]</strong></p>
+                        <div class="diagram">DIVIDE:
+[100, 25, 98, 54]
+       ↓
+[100,25] | [98,54]
+   ↓         ↓
+[100][25] [98][54]
+
+MERGE:
+[25,100] + [54,98]
+    ↓
+[25, 54, 98, 100]</div>
+                        <table>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>Time (All cases)</td>
+                                <td>O(n log n)</td>
+                            </tr>
+                            <tr>
+                                <td>Space</td>
+                                <td>O(n)</td>
+                            </tr>
+                            <tr>
+                                <td>Stable</td>
+                                <td>Yes ✓</td>
+                            </tr>
+                        </table>
+                        <div class="formula">
+                            T(n) = 2T(n/2) + n<br>
+                            Master's Theorem Case 2 → T(n) = Θ(n log n)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q3: Quick Sort - Partitioning & Complexity</div>
+                    <div class="answer">
+                        <p><strong>Algorithm:</strong></p>
+                        <pre>QuickSort(A[], low, high):
+    if low < high:
+        pi = Partition(A, low, high)
+        QuickSort(A, low, pi-1)
+        QuickSort(A, pi+1, high)</pre>
+                        <p><strong>Example: Sort [50, 30, 90, 10, 70]</strong></p>
+                        <div class="diagram">Pivot = 70
+
+Partition:
+[50, 30, 90, 10] < 70
+[10, 30, 50] = smaller
+[90] = larger
+
+Result: [10, 30, 50, 70, 90]</div>
+                        <table>
+                            <tr>
+                                <th>Case</th>
+                                <th>Complexity</th>
+                            </tr>
+                            <tr>
+                                <td>Best</td>
+                                <td>O(n log n)</td>
+                            </tr>
+                            <tr>
+                                <td>Average</td>
+                                <td>O(n log n)</td>
+                            </tr>
+                            <tr>
+                                <td>Worst</td>
+                                <td>O(n²)</td>
+                            </tr>
+                            <tr>
+                                <td>Space</td>
+                                <td>O(log n)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q4: Insertion Sort - Algorithm & Complexity</div>
+                    <div class="answer">
+                        <p><strong>Algorithm:</strong></p>
+                        <pre>InsertionSort(A[], n):
+    for i = 1 to n-1:
+        key = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > key:
+            A[j+1] = A[j]
+            j--
+        A[j+1] = key</pre>
+                        <p><strong>Example: Sort [15, 10, 5, 8, 17]</strong></p>
+                        <div class="diagram">Pass 0: [15]
+Pass 1: [10, 15]
+Pass 2: [5, 10, 15]
+Pass 3: [5, 8, 10, 15]
+Pass 4: [5, 8, 10, 15, 17]</div>
+                        <table>
+                            <tr>
+                                <th>Case</th>
+                                <th>Complexity</th>
+                            </tr>
+                            <tr>
+                                <td>Best (Sorted)</td>
+                                <td>O(n)</td>
+                            </tr>
+                            <tr>
+                                <td>Average</td>
+                                <td>O(n²)</td>
+                            </tr>
+                            <tr>
+                                <td>Worst (Reverse)</td>
+                                <td>O(n²)</td>
+                            </tr>
+                            <tr>
+                                <td>Space</td>
+                                <td>O(1)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q5: Divide and Conquer Technique</div>
+                    <div class="answer">
+                        <p><strong>Three Steps:</strong></p>
+                        <div class="diagram">1. DIVIDE: Split into subproblems
+2. CONQUER: Solve recursively
+3. COMBINE: Merge solutions</div>
+                        <p><strong>Recurrence Form:</strong></p>
+                        <div class="formula">
+                            T(n) = aT(n/b) + f(n)<br>
+                            a = subproblems, n/b = subproblem size
+                        </div>
+                        <p><strong>Examples:</strong></p>
+                        <ul>
+                            <li>Merge Sort: T(n) = 2T(n/2) + n → O(n log n)</li>
+                            <li>Quick Sort: T(n) = 2T(n/2) + n → O(n log n) avg</li>
+                            <li>Binary Search: T(n) = T(n/2) + 1 → O(log n)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q6: BFS vs DFS Comparison</div>
+                    <div class="answer">
+                        <table>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>BFS</th>
+                                <th>DFS</th>
+                            </tr>
+                            <tr>
+                                <td>Data Structure</td>
+                                <td>Queue (FIFO)</td>
+                                <td>Stack (LIFO)</td>
+                            </tr>
+                            <tr>
+                                <td>Traversal</td>
+                                <td>Level-by-level</td>
+                                <td>Deep first</td>
+                            </tr>
+                            <tr>
+                                <td>Time</td>
+                                <td>O(V+E)</td>
+                                <td>O(V+E)</td>
+                            </tr>
+                            <tr>
+                                <td>Order</td>
+                                <td>1→2→3→4→5→6</td>
+                                <td>1→2→4→6→3→5</td>
+                            </tr>
+                            <tr>
+                                <td>Use Cases</td>
+                                <td>Shortest path, level-order</td>
+                                <td>Cycles, topological sort</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q7: Tree Traversals - All 4 Types</div>
+                    <div class="answer">
+                        <p><strong>Sample Tree:</strong></p>
+                        <div class="diagram">     1
+        / \
+       2   3
+      / \
+     4   5</div>
+                        <table>
+                            <tr>
+                                <th>Traversal</th>
+                                <th>Pattern</th>
+                                <th>Order</th>
+                                <th>Use</th>
+                            </tr>
+                            <tr>
+                                <td>Preorder</td>
+                                <td>Root-L-R</td>
+                                <td>1,2,4,5,3</td>
+                                <td>Copy tree</td>
+                            </tr>
+                            <tr>
+                                <td>Inorder</td>
+                                <td>L-Root-R</td>
+                                <td>4,2,5,1,3</td>
+                                <td>BST sorted</td>
+                            </tr>
+                            <tr>
+                                <td>Postorder</td>
+                                <td>L-R-Root</td>
+                                <td>4,5,2,3,1</td>
+                                <td>Delete tree</td>
+                            </tr>
+                            <tr>
+                                <td>Level-order</td>
+                                <td>By levels</td>
+                                <td>1,2,3,4,5</td>
+                                <td>Level print</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 3 -->
+            <div id="module3" class="module">
+                <h2>🎲 MODULE 3: Backtracking & Branch and Bound</h2>
+
+                <div class="question">
+                    <div class="question-title">Q1: Backtracking Technique - Definition & Procedure</div>
+                    <div class="answer">
+                        <p><strong>Definition:</strong> Solve problem by exploring solutions; abandon infeasible paths.</p>
+                        <div class="diagram">PROCEDURE:
+1. Build solution incrementally
+2. Check constraints at each step
+3. If valid → Continue
+4. If invalid → Backtrack (undo)
+5. Repeat until solved</div>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Explores decision tree systematically</li>
+                            <li>Prunes infeasible branches early</li>
+                            <li>Exponential worst-case O(n!)</li>
+                            <li>Guarantees finding solutions</li>
+                        </ul>
+                        <p><strong>Problems:</strong> N-Queens, Graph Coloring, Sudoku, Subset Sum</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q2: Graph Coloring Problem</div>
+                    <div class="answer">
+                        <p><strong>Problem:</strong> Assign colors to vertices so no adjacent vertices share colors.</p>
+                        <p><strong>Example: 4 vertices, 3 colors</strong></p>
+                        <div class="diagram">Graph:     Solution:
+ 1 -- 2      Vertex 1: RED
+ |  \ |      Vertex 2: BLUE
+ 3 -- 4      Vertex 3: GREEN
+             Vertex 4: RED</div>
+                        <p><strong>Algorithm:</strong> Use backtracking with constraint checking</p>
+                        <p><strong>Complexity:</strong> O(m^n) where m=colors, n=vertices</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q3: 0/1 Knapsack Problem</div>
+                    <div class="answer">
+                        <p><strong>Problem:</strong> Select items with max profit respecting weight limit.</p>
+                        <p><strong>Branch & Bound Strategy:</strong></p>
+                        <ul>
+                            <li>Create decision tree: include/exclude each item</li>
+                            <li>Calculate upper bound on profit</li>
+                            <li>Prune if bound ≤ best found</li>
+                            <li>Effective pruning reduces exponential space</li>
+                        </ul>
+                        <p><strong>Example:</strong></p>
+                        <div class="example">
+                            <p>Items: (value, weight) = (10,4), (15,6), (6,3), (8,4), (4,2)</p>
+                            <p>Capacity: 12</p>
+                            <p>Best selection: (15,6) + (10,4) + (4,2) = $29 weight 12</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q4: N-Queens Problem</div>
+                    <div class="answer">
+                        <p><strong>Problem:</strong> Place n queens on n×n board, no attacks.</p>
+                        <p><strong>4-Queens Solution:</strong></p>
+                        <div class="diagram">  0 1 2 3
+0 . Q . .
+1 . . . Q
+2 Q . . .
+3 . . Q .</div>
+                        <p><strong>Queens at:</strong> (0,1), (1,3), (2,0), (3,2)</p>
+                        <p><strong>Backtracking Process:</strong></p>
+                        <ul>
+                            <li>Place queen row by row</li>
+                            <li>Check: not same column, not same diagonal</li>
+                            <li>If conflict, backtrack to previous row</li>
+                            <li>Continue until all rows filled</li>
+                        </ul>
+                        <p><strong>Complexity:</strong> O(N!) - try all positions</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q5: Subset Sum Problem</div>
+                    <div class="answer">
+                        <p><strong>Problem:</strong> Find all subsets with sum equal to target M.</p>
+                        <p><strong>Example:</strong></p>
+                        <div class="example">
+                            <p>Elements: {11, 13, 24, 7}, Target M = 31</p>
+                            <p>Valid subsets:</p>
+                            <ul>
+                                <li>{11, 7} → Sum = 18</li>
+                                <li>{13, 7} → Sum = 20</li>
+                                <li>{11, 13} → Sum = 24</li>
+                                <li>{24, 7} → Sum = 31 ✓</li>
+                            </ul>
+                        </div>
+                        <p><strong>Backtracking Approach:</strong></p>
+                        <ul>
+                            <li>Include/exclude each element</li>
+                            <li>Build state space tree</li>
+                            <li>Prune if sum exceeds M</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q6: Branch and Bound Technique</div>
+                    <div class="answer">
+                        <p><strong>Definition:</strong> Optimization algorithm using bounds to prune search space.</p>
+                        <p><strong>Process:</strong></p>
+                        <div class="diagram">1. Create decision tree
+2. Calculate bounds for each node
+3. Prune if bound worse than best found
+4. Expand most promising node first
+5. Continue until optimal solution</div>
+                        <p><strong>Strategies:</strong></p>
+                        <ul>
+                            <li>FIFO: Breadth-first pruning</li>
+                            <li>LIFO: Depth-first pruning</li>
+                            <li>LC (Least Cost): Most promising first</li>
+                        </ul>
+                        <p><strong>Applications:</strong> TSP, Job Scheduling, Assignment Problem</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 4 -->
+            <div id="module4" class="module">
+                <h2>🌐 MODULE 4: Graph Algorithms & Advanced Techniques</h2>
+
+                <div class="question">
+                    <div class="question-title">Q1: Minimum Spanning Tree (MST)</div>
+                    <div class="answer">
+                        <p><strong>Definition:</strong> Subgraph connecting all vertices with minimum total weight.</p>
+                        <p><strong>Properties:</strong></p>
+                        <ul>
+                            <li>Connects all V vertices</li>
+                            <li>Uses exactly V-1 edges</li>
+                            <li>Minimum total weight</li>
+                            <li>No cycles (acyclic)</li>
+                        </ul>
+                        <p><strong>Two Main Algorithms:</strong></p>
+                        <ul>
+                            <li><strong>Kruskal's:</strong> Sort edges, add if no cycle (O(E log E))</li>
+                            <li><strong>Prim's:</strong> Start vertex, add min edge (O(V²))</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q2: Kruskal's Algorithm - Step by Step</div>
+                    <div class="answer">
+                        <p><strong>Algorithm:</strong></p>
+                        <pre>Kruskal(Graph, weights):
+    Sort edges by weight
+    union_find = InitializeUnionFind()
+    MST = []
+
+    for each edge (u,v) in sorted order:
+        if find(u) != find(v):
+            MST.add(edge)
+            union(u, v)
+            if MST.size == V-1:
+                return MST</pre>
+                        <p><strong>Example Graph Edges:</strong> (1,2,1), (1,3,4), (1,4,3), (2,3,2), (2,4,5)</p>
+                        <div class="diagram">SORTED: (1,2,1) → (2,3,2) → (1,4,3) → (1,3,4) → (2,4,5)
+
+Step 1: Add (1,2,1) - Components: {1,2}, {3}, {4}
+Step 2: Add (2,3,2) - Components: {1,2,3}, {4}
+Step 3: Add (1,4,3) - Components: {1,2,3,4} COMPLETE!
+Step 4: Skip (1,3,4) - Creates cycle
+Step 5: Skip (2,4,5) - Creates cycle
+
+MST Weight: 1+2+3 = 6</div>
+                        <p><strong>Time Complexity:</strong> O(E log E) for sorting</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q3: Dijkstra's Shortest Path Algorithm</div>
+                    <div class="answer">
+                        <p><strong>Problem:</strong> Find shortest path from source to all vertices.</p>
+                        <p><strong>Algorithm:</strong></p>
+                        <pre>Dijkstra(Graph, source):
+    distance[source] = 0, others = ∞
+    visited = []
+
+    for i = 1 to V:
+        u = vertex with min distance not in visited
+        visited.add(u)
+
+        for each neighbor v of u:
+            if distance[u] + weight(u,v) < distance[v]:
+                distance[v] = distance[u] + weight(u,v)</pre>
+                        <p><strong>Example Trace (Source = 1):</strong></p>
+                        <div class="diagram">Initial: [0, ∞, ∞, ∞, ∞]
+
+Visit 1: Update neighbors
+Result: [0, 7, 9, ∞, ∞]
+
+Visit 2 (min=7): Update
+Result: [0, 7, 9, 22, ∞]
+
+Visit 3 (min=9): Update
+Result: [0, 7, 9, 20, 20]
+
+Final: [0, 7, 9, 20, 20]</div>
+                        <p><strong>Time Complexity:</strong> O(V²) or O((V+E)log V) with heap</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q4: BFS (Breadth-First Search)</div>
+                    <div class="answer">
+                        <p><strong>Algorithm:</strong></p>
+                        <pre>BFS(Graph, start):
+    queue = [start]
+    visited = [start]
+
+    while queue not empty:
+        v = queue.dequeue()
+        for each neighbor u of v:
+            if u not visited:
+                queue.enqueue(u)
+                visited.add(u)</pre>
+                        <p><strong>Example Graph:</strong> 1→{2,3}, 2→{4}, 3→{5}</p>
+                        <div class="diagram">BFS Order: 1 → 2 → 3 → 4 → 5
+
+Level 0: {1}
+Level 1: {2, 3}
+Level 2: {4, 5}</div>
+                        <table>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>Time</td>
+                                <td>O(V+E)</td>
+                            </tr>
+                            <tr>
+                                <td>Space</td>
+                                <td>O(V)</td>
+                            </tr>
+                            <tr>
+                                <td>Use</td>
+                                <td>Shortest unweighted path</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q5: DFS (Depth-First Search)</div>
+                    <div class="answer">
+                        <p><strong>Algorithm (Recursive):</strong></p>
+                        <pre>DFS(Graph, v, visited):
+    visited.add(v)
+    for each neighbor u of v:
+        if u not visited:
+            DFS(Graph, u, visited)</pre>
+                        <p><strong>Example Graph:</strong> Same as BFS</p>
+                        <div class="diagram">DFS Order: 1 → 2 → 4 → 3 → 5
+
+Depth first approach:
+1 → 2 (go deep)
+  → 4 (end)
+← Back to 1
+→ 3 (go deep)
+  → 5 (end)</div>
+                        <table>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>Time</td>
+                                <td>O(V+E)</td>
+                            </tr>
+                            <tr>
+                                <td>Space</td>
+                                <td>O(V)</td>
+                            </tr>
+                            <tr>
+                                <td>Use</td>
+                                <td>Cycles, topological sort</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q6: Hamiltonian Circuit Problem</div>
+                    <div class="answer">
+                        <p><strong>Problem:</strong> Find circuit visiting each vertex exactly once.</p>
+                        <p><strong>Example (4 vertices):</strong></p>
+                        <div class="diagram">Graph:  1 -- 2
+        |    |
+        3 -- 4
+
+Hamiltonian Circuit:
+1 → 2 → 4 → 3 → 1</div>
+                        <p><strong>Approach:</strong> DFS with backtracking</p>
+                        <ul>
+                            <li>Try each vertex as starting point</li>
+                            <li>Visit unvisited neighbors recursively</li>
+                            <li>If all visited and path to start exists: FOUND</li>
+                            <li>If stuck, backtrack and try different path</li>
+                        </ul>
+                        <p><strong>Complexity:</strong> O(N!) worst case - NP-hard problem</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">Q7: Traveling Salesman Problem (TSP)</div>
+                    <div class="answer">
+                        <p><strong>Problem:</strong> Find shortest tour visiting all cities exactly once.</p>
+                        <p><strong>Branch & Bound Approach:</strong></p>
+                        <ul>
+                            <li>Create decision tree including/excluding edges</li>
+                            <li>Lower bound: Minimum spanning tree + minimum edge</li>
+                            <li>Upper bound: Best tour found so far</li>
+                            <li>Prune branches with bound > best tour</li>
+                            <li>More effective than brute force O(n!)</li>
+                        </ul>
+                        <p><strong>Applications:</strong> Route planning, Circuit design, Logistics</p>
+                        <div class="memory-tip">
+                            <strong>📌 Note:</strong> TSP is NP-hard - no known polynomial solution!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>📚 Design and Analysis of Algorithms Complete Study Guide</p>
+            <p>✨ Study Hard, Code Harder, Succeed Strongest! 🚀</p>
+        </footer>
+    </div>
+
+    <script>
+        function showModule(moduleId) {
+            const modules = document.querySelectorAll('.module');
+            modules.forEach(module => {
+                module.classList.remove('active');
+            });
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(moduleId).classList.add('active');
+            event.target.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
